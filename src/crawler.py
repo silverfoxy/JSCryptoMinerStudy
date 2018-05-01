@@ -52,15 +52,16 @@ class Crawler():
 			with open(each, 'r') as p:
 				page = p.read()
 			self.dprint("PAGE_SRC: {0}".format(page))
-			#print each 
+			print each 
 			url =  each.split('/')[-1]
-			#print url 
+		        print url 
 			#miners = re.findall(r"(?=("+'|'.join(self.miners)+r"))", page)
 			if (num_miners != 0):
 				miners=self.match_patterns(page, self.miners[0:num_miners])
 			else:
 				miners=self.match_patterns(page, self.miners)
-			#print "miners: {0}".format(miners)
+                        if len(miners) > 0:
+                            print "miners: {0}".format(miners)
 			self.result[url] = miners 
 			count += 1
 			if(num_pages == count): 
@@ -73,6 +74,7 @@ class Crawler():
 			r.write("URLs Crawled: {0}\nTotal Time Taken:{1}\n".format(num_pages, time_taken));	
 			r.write("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");	
 			for k,v in self.result.items():
+                            if len(v) > 1:
 				r.write('URL: {0}\n'.format(k))
 				r.write("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");	
 				r.write('Miners: {0}\n'.format(v))
@@ -82,10 +84,10 @@ if __name__ == "__main__":
 	pages = glob.iglob('../pagesource/*')
 	page_list = []
 	for each in pages:
-		page_list.append(each)
+	    page_list.append(each)
 	#print page_list
-	c = Crawler('./blacklist.txt', page_list)
+	c = Crawler('./tmp', page_list)
 	#print c.miners
-	c.crawl(num_pages=100, num_miners=1)
-	#c.fetch_miner_regex() 
+	c.crawl(num_pages=100000, num_miners=1)
+	c.fetch_miner_regex() 
 		
