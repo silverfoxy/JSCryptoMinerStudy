@@ -86,6 +86,6 @@ if __name__ == "__main__":
 	#print page_list
 	c = Crawler('./blacklist.txt', page_list)
 	#print c.miners
-	c.crawl(num_pages=100, num_miners=1)
+	c.crawl(num_pages=100, num_miners=100)
 	#c.fetch_miner_regex() 
 		
