@@ -88,6 +88,11 @@ if __name__ == "__main__":
 	#print page_list
 	c = Crawler('./tmp', page_list)
 	#print c.miners
+<<<<<<< HEAD
 	c.crawl(num_pages=100000, num_miners=1)
 	c.fetch_miner_regex() 
+=======
+	c.crawl(num_pages=100, num_miners=100)
+	#c.fetch_miner_regex() 
+>>>>>>> 6717b43b521aa2c5035a2f57ad0292b6ff74f1fa
 		
