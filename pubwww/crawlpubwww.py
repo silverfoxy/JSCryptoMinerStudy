@@ -63,7 +63,7 @@ def get_page_csvs():
 
 if __name__=="__main__":
 	if(sys.argv[1] == 'html'):
-		get_page_csvs()
+		get_page_src()
 	if(sys.argv[1] == 'csv'):
 		get_page_src()
 	if(sys.argv[1] == 'snippet'):
