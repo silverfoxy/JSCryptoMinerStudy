@@ -1,1 +1,0 @@
-<html><head><title>Redirect</title></head><body><h1>Redirect</h1><p>You should go to <a href="http://www.gls-group.eu/276-I-PORTAL-WEB/content/GLS/PL01/PL/1_-gls-poland.htm">http://www.gls-group.eu/276-I-PORTAL-WEB/content/GLS/PL01/PL/1_-gls-poland.htm</a></p></body></html>

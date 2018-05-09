@@ -1,1 +1,0 @@
-<!DOCTYPE html> <html> <head> <meta charset="UTF-8" /> <meta http-equiv="refresh" content="1;url=https://islamhouse.com/en/" /> <title>Redirecting to https://islamhouse.com/en/</title> <script src="/cdn-cgi/apps/head/xlrm9A-E5zwsyJ6VSDaubaD4dZg.js"></script></head> <body> Redirecting to <a href="https://islamhouse.com/en/">https://islamhouse.com/en/</a>. </body> </html>

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://ru.hexlet.io/">redirected</a>.</body></html>

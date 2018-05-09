@@ -1,4 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-<title>Redirecting...</title>
-<h1>Redirecting...</h1>
-<p>You should be redirected automatically to target URL: <a href="http://omblockedips.com/?honeypot&amp;params=BGCG5a9pk53A4LXC8kzwUVrQZB75nRJcsT8hgVViJ3VymvA2Yc0xCjfT5Yzxz6qy6g7Vwj_eJQJcip6KW_c48cpgiZwT7CgKToeSzcjDnfvN1VvTyFseTaqZmHZMj5wzCFq2cywnPtHbA8Abdp-kLq2Lp7nwt6NXddszM2Jmx5erouS-Gj7tpEtsBHK5V4GmmOK3gH9lvjg0Ji_46R3aReaH">http://omblockedips.com/?honeypot&amp;params=BGCG5a9pk53A4LXC8kzwUVrQZB75nRJcsT8hgVViJ3VymvA2Yc0xCjfT5Yzxz6qy6g7Vwj_eJQJcip6KW_c48cpgiZwT7CgKToeSzcjDnfvN1VvTyFseTaqZmHZMj5wzCFq2cywnPtHbA8Abdp-kLq2Lp7nwt6NXddszM2Jmx5erouS-Gj7tpEtsBHK5V4GmmOK3gH9lvjg0Ji_46R3aReaH</a>.  If not click the link.

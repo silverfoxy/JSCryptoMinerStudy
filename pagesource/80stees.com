@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.80stees.com/">redirected</a>.</body></html>

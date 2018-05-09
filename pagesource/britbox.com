@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.britbox.com/us/">https://www.britbox.com/us/</a></p>

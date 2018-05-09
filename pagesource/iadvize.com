@@ -1,1 +1,0 @@
-<a href="/en/">Moved Permanently</a>.

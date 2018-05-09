@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.mixonline.com/">https://www.mixonline.com/</a></p>

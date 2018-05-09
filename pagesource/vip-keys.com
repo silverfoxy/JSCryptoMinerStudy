@@ -1,1 +1,0 @@
-<meta http-equiv="refresh" content="0; url=https://vip-keys.com/shop/"><script>window.location.href='https://vip-keys.com/shop/'</script>

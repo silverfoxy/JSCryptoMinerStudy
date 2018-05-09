@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://deliveroo.be/fr/">redirected</a>.</body></html>

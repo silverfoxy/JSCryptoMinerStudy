@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.zoodel.com/en">https://www.zoodel.com/en</a></p>

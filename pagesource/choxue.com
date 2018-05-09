@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://choxue.com/">https://choxue.com/</a></p>

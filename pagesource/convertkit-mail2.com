@@ -1,1 +1,0 @@
-<a href="https://convertkit.com">Moved Permanently</a>.

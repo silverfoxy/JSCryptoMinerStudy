@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://themarket.io/">https://themarket.io/</a></p>

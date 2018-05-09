@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://news.bandsintown.com">https://news.bandsintown.com</a></p>

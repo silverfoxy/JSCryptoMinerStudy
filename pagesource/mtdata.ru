@@ -1,1 +1,0 @@
-<html>mtdata.ru</html>

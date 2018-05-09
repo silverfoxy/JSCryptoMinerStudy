@@ -1,7 +1,0 @@
-<html><head><title>Uber Marketplace</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=./static/favicon.ico><link rel=icon type=images/ico href=https://d1a3f4spazzrp4.cloudfront.net/uber-com/1.0.34/d1a3f4spazzrp4.cloudfront.net/favicon-17677bc2ca.ico><link rel=stylesheet href=https://d1a3f4spazzrp4.cloudfront.net/uber-icons/3.14.0/uber-icons.css><link rel=stylesheet href=https://d1a3f4spazzrp4.cloudfront.net/uber-fonts/4.0.0/superfine.css><script async="" src=//www.google-analytics.com/analytics.js></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-67796175-6', 'auto');
-    //ga('send', 'pageview');</script><link href=/static/css/app.a5460679773540fa7ecb46816d1972e9.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.673463d57508a9481c5f.js></script><script type=text/javascript src=/static/js/vendor.104e656e49d983bb8ccf.js></script><script type=text/javascript src=/static/js/app.1c09f40e1056ed5ea4f2.js></script></body></html>

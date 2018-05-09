@@ -1,1 +1,0 @@
-<a href='https://www.earny.co'>Found</a>.

@@ -1,1 +1,0 @@
-<script type='text/javascript'> location.replace('./news'); </script>

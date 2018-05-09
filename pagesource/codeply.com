@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.codeply.com/">https://www.codeply.com/</a></p>

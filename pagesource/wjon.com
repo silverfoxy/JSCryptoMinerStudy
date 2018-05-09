@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="http://wjon.com/">http://wjon.com/</a></p>

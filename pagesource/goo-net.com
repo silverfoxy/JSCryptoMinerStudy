@@ -1,7 +1,0 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html><head>
-<title>301 Moved Permanently</title>
-</head><body>
-<h1>Moved Permanently</h1>
-<p>The document has moved <a href="https://www.goo-net.com/">here</a>.</p>
- <script type="text/javascript" src="/common_v2/js/tags/ga/static_redirect.js"></script> <!-- Google Tag Manager --> <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-54GP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-54GP');</script> <!-- End Google Tag Manager --> <script type="text/javascript">  (function () {    var tagjs = document.createElement("script");    var s = document.getElementsByTagName("script")[0];    tagjs.async = true;    tagjs.src = "//s.yjtag.jp/tag.js#site=K9ZiBAO";    s.parentNode.insertBefore(tagjs, s);  }());</script><noscript><iframe src="//b.yjtag.jp/iframe?c=K9ZiBAO" width="1" height="1" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></noscript></script></body></html>

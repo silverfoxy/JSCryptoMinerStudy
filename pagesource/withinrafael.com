@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://withinrafael.com/">https://withinrafael.com/</a></p>

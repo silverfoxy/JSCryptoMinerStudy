@@ -1,1 +1,0 @@
-Redirecting to <a href="https://allegro.pl">https://allegro.pl</a>.

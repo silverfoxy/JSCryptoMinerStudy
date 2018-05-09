@@ -1,1 +1,0 @@
-<h1>Redirecting To <a href="https://www.solo.be/">solo.be</a> </h1>

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://lecol.cc/">redirected</a>.</body></html>

@@ -1,3 +1,0 @@
-<html><head><title>Object moved</title><script type="text/javascript" src="/ruxitagentjs_ICA2SVfqr_10135180105125946.js" data-dtconfig="rid=RID_2418|rpid=-1071164442|domain=vivaaerobus.com|reportUrl=/rb_e62d12a4-6e50-4efc-81be-8375a32b4090|featureHash=ICA2SVfqr|lastModification=1520091726666|dtVersion=10135180105125946|tp=500,50,0,1|agentUri=/ruxitagentjs_ICA2SVfqr_10135180105125946.js"></script></head><body>
-<h2>Object moved to <a href="/mx">here</a>.</h2>
-</body></html>

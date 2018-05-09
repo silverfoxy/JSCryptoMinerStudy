@@ -1,1 +1,0 @@
-This page can only be viewed in secure mode.  Please proceed to: <a href="https://www.proz.com/">https://www.proz.com/</a>

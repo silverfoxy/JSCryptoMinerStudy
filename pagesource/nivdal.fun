@@ -1,1 +1,0 @@
-<a href='http://sport.nivdal.fun'>Moved Permanently</a>.

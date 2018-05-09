@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://420tv.com/">https://420tv.com/</a></p>

@@ -1,1 +1,0 @@
-<!DOCTYPE html><TITLE>Moved</TITLE><P>The document has moved <A HREF="https://blog.freedom-man.com/">here</A>

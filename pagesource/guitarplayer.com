@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.guitarplayer.com/">https://www.guitarplayer.com/</a></p>

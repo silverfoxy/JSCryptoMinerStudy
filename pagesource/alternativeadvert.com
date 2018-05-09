@@ -1,1 +1,0 @@
-Unable to connect to the database host. Check database host, username, password.<br>2002 - No such file or directory

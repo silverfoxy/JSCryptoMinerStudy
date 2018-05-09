@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://booth.pm/ja">redirected</a>.</body></html>

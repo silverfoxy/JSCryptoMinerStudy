@@ -1,4 +1,0 @@
-<br />
-<b>Warning</b>:  require_once(/homepages/23/d514313691/htdocs/clickandbuilds/LaSalleSalud/wp-includes/pomo/plural-forms.php): failed to open stream: No such file or directory in <b>/homepages/23/d514313691/htdocs/clickandbuilds/LaSalleSalud/wp-includes/pomo/translations.php</b> on line <b>10</b><br />
-<br />
-<b>Fatal error</b>:  require_once(): Failed opening required '/homepages/23/d514313691/htdocs/clickandbuilds/LaSalleSalud/wp-includes/pomo/plural-forms.php' (include_path='.:/usr/lib/php5.5') in <b>/homepages/23/d514313691/htdocs/clickandbuilds/LaSalleSalud/wp-includes/pomo/translations.php</b> on line <b>10</b><br />

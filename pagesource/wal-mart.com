@@ -1,1 +1,0 @@
-<head><body> This object may be found <a HREF="http://i.walmart.com/maint/">here</a> </body>

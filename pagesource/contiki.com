@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.contiki.com/us/en">https://www.contiki.com/us/en</a>

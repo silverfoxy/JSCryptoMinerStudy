@@ -1,1 +1,0 @@
-<a href="https://coding.net/pages/waiting?redirect=http%3A%2F%2Fwww.xiaoleilu.com%2F">Found</a>.

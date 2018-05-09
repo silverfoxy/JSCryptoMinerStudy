@@ -1,1 +1,0 @@
-<h1>Redirecting To <a href="http://www.extrastolowki.pl/">extrastolowki.pl</a> </h1>

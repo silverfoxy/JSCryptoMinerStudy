@@ -1,1 +1,0 @@
-<head><body> This object may be found <a HREF="http://www.united.com/wifi">here</a> </body>

@@ -1,7 +1,0 @@
-<!DOCTYPE html><html><head><meta http-equiv=content-type content="text/html; charset=utf-8"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=Description content='Amazon visualization shows similar items based on "Customers who bought this also bought..." data from Amazon'><meta name=keywords content="amazon visualization, amazon recommendation, find books, similar products, also bought, amazon, yasiv, Andrei Kashcha, anvaka"><meta name=author content="Andrei Kashcha"><meta name=title content="Amazon Products Visualization - YASIV"><title>Amazon Products Visualization - YASIV</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel=stylesheet><link href=/static/app.c72b6aae64e6bf5150bb5e83a9e7bb43.css rel=stylesheet></head><body><app></app><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-17876667-1', 'auto');
-      ga('send', 'pageview');</script><script type=text/javascript src=/static/app.d89e7c6cf70206c4e471.js></script></body></html>

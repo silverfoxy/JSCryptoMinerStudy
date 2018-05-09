@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.salestockindonesia.com/">https://www.salestockindonesia.com/</a></p>

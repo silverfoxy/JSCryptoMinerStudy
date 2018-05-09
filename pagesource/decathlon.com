@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.decathlon.com/">redirected</a>.</body></html>

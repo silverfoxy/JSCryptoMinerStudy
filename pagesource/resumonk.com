@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.resumonk.com/">https://www.resumonk.com/</a>

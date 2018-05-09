@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.maxim.com/">https://www.maxim.com/</a></p>

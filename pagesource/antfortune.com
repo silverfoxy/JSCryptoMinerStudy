@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.antfortune.com/">https://www.antfortune.com/</a>.

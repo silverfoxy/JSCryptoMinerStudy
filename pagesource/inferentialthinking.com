@@ -1,1 +1,0 @@
-<a href='http://www.inferentialthinking.com/'>Found</a>.

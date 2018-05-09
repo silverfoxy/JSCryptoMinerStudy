@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://installeranalytics.com/">https://installeranalytics.com/</a></p>

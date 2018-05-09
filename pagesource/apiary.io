@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://apiary.io/">https://apiary.io/</a></p>

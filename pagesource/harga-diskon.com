@@ -1,1 +1,0 @@
-<a href='http://www.harga-diskon.com/'>Found</a>.

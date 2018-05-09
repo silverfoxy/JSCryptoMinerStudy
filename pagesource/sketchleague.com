@@ -1,1 +1,0 @@
-<a href='http://www.sketchleague.com'>Found</a>.

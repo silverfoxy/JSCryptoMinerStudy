@@ -1,3 +1,0 @@
-<html><head><title>Object moved</title><script type="text/javascript" src="/ruxitagentjs_2fqr_10137171222133618.js" data-dtconfig="rid=RID_2418|rpid=-543035664|domain=indianmotorcycle.com|reportUrl=/rb_bf61079mvy|featureHash=2fqr|lastModification=1520953654166|dtVersion=10137171222133618|tp=500,50,0,1|agentUri=/ruxitagentjs_2fqr_10137171222133618.js"></script></head><body>
-<h2>Object moved to <a href="https://www.indianmotorcycle.com/en-us/">here</a>.</h2>
-</body></html>

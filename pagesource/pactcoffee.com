@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.pactcoffee.com/">https://www.pactcoffee.com/</a>.

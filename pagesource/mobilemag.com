@@ -1,4 +1,0 @@
-<br />
-<b>Warning</b>: require_once(/home/wp_v6p76f/mobilemag.com/wp-content/plugins/wpdigipro/includes/wpdigipro-front-model.php): failed to open stream: Permission denied in <b>/home/wp_v6p76f/mobilemag.com/wp-content/plugins/wpdigipro/includes/wpdigipro-includes.php</b> on line <b>14</b><br />
-<br />
-<b>Fatal error</b>: require_once(): Failed opening required '/home/wp_v6p76f/mobilemag.com/wp-content/plugins/wpdigipro/includes/wpdigipro-front-model.php' (include_path='.:') in <b>/home/wp_v6p76f/mobilemag.com/wp-content/plugins/wpdigipro/includes/wpdigipro-includes.php</b> on line <b>14</b><br />

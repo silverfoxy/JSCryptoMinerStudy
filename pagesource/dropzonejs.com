@@ -1,1 +1,0 @@
-<html><body>You are now redirected to<br><a href="http://www.dropzonejs.com/">http://www.dropzonejs.com/</a></body></html>

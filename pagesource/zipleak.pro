@@ -1,1 +1,0 @@
-<body background=wallpaper_of_albums_by_chrona_x_kid-d5l80cw.jpg>

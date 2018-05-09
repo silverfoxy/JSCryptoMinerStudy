@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.whatsthatcharge.com/home/index">redirected</a>.</body></html>

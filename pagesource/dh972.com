@@ -1,1 +1,0 @@
-<html><meta http-equiv="refresh" content="0;url=https://www.2345.com/tg36688.htm"><div style="display:none;"><script src="https://s95.cnzz.com/z_stat.php?id=1260932962&web_id=1260932962" language="JavaScript"></script></div></html>

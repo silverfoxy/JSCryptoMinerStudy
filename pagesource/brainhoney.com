@@ -1,1 +1,0 @@
-<html><body><h1>Whitelabel Error Page</h1><p>This application has no explicit mapping for /error, so you are seeing this as a fallback.</p><div id='created'>Sat Mar 24 19:41:00 UTC 2018</div><div>There was an unexpected error (type=Not Found, status=404).</div><div>No message available</div></body></html>

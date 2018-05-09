@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://provideup.com/">https://provideup.com/</a></p>

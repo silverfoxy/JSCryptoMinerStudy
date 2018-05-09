@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://sbmenus.com/some/santabarbara/delivery/featured">redirected</a>.</body></html>

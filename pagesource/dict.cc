@@ -1,1 +1,0 @@
-<a href="https://www.dict.cc/">https://www.dict.cc/</a>

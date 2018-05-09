@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://wethepeopleholsters.com/">redirected</a>.</body></html>

@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.craftsman.com/">https://www.craftsman.com/</a>

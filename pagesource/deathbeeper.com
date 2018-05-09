@@ -1,1 +1,0 @@
-<HTML><HEAD><TITLE>deathbeeper.com</TITLE><link rel='shortcut icon' href='http://rawdataserver.com/CDB/graphics/deadmanStarLeft_16x16.png' /></HEAD><FRAMESET ROWS=*><FRAME SRC="http://rawdataserver.com/CDB/" NAME=ZT></FRAMESET></HTML>

@@ -1,1 +1,0 @@
-﻿<meta http-equiv='refresh' content='1;url=/wordpress' /><script type='text/javascript'>document.location.replace('/wordpress');</script>

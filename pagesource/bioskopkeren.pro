@@ -1,1 +1,0 @@
-Ayo nonton di <a href="http://bioskopkeren.online">BioskopKeren</a>

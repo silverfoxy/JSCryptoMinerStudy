@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://the-citizenry.com/">redirected</a>.</body></html>

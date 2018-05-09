@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.ncloud.com/">https://www.ncloud.com/</a></p>

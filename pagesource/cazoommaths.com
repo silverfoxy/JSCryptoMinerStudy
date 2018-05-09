@@ -1,2 +1,0 @@
-<!-- cPanel [11.64] (cloudlinux,pro,attracta) Copyright (c) 2016 cPanel, Inc. Licensed on host58.servers.prgn.misp.co.uk -->
-<!-- cPanel [11.64] (cloudlinux,pro,attracta) Copyright (c) 2016 cPanel, Inc. Licensed on host58.servers.prgn.misp.co.uk -->

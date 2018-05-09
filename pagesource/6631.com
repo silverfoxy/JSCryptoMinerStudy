@@ -1,1 +1,0 @@
-<a href="http://www.8u.com">Moved Permanently</a>.

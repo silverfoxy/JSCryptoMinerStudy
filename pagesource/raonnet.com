@@ -1,1 +1,0 @@
-<meta http-equiv='refresh' content='0; url=/ip_check.php?HTTP_REFERER=/'>

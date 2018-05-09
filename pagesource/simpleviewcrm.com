@@ -1,1 +1,0 @@
-<h3>Simpleview</h3>

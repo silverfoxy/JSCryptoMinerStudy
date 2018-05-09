@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.kingandmcgaw.com/">https://www.kingandmcgaw.com/</a>

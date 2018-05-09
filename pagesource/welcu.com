@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://welcu.com/es">redirected</a>.</body></html>

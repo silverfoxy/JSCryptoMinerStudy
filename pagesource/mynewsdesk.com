@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://www.mynewsdesk.com/us">redirected</a>.</body></html>

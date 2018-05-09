@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://bitsrc.io/">https://bitsrc.io/</a></p>

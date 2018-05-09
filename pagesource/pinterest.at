@@ -1,1 +1,0 @@
-<!DOCTYPE html><html><head><title>Moved Permanently</title></head><body>Moved permanently to <a href="https://www.pinterest.com/">https://www.pinterest.com/</a></body></html>

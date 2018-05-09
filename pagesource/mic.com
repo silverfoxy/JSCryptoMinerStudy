@@ -1,1 +1,0 @@
-Redirecting to <a href="https://mic.com/">https://mic.com/</a>.

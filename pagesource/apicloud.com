@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.apicloud.com">https://www.apicloud.com</a></p>

@@ -1,1 +1,0 @@
-<html><body>Redirect to <a href="https://www.spinchat.com/">https://www.spinchat.com/</a></body></html>

@@ -1,1 +1,0 @@
-<html><body>The requested resource was moved. It could be found here: <a href="http://www.diyiziti.com/">http://www.diyiziti.com/</a></body></html>

@@ -1,1 +1,0 @@
-<a href="http://www.sakuralive.com/">here</a>

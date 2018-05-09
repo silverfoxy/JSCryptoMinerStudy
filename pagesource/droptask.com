@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.droptask.com/">https://www.droptask.com/</a></p>

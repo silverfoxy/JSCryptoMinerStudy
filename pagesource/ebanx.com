@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.ebanx.com/business/en">redirected</a>.</body></html>

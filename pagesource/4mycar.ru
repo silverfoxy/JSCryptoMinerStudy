@@ -1,1 +1,0 @@
-<a href=https://4mycar.ru/ rel=nofollow>Please click to use HTTPS-only connection</a>

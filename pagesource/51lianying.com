@@ -1,1 +1,0 @@
-<script>window.location.href="http://www.51lianying.com/";</script>

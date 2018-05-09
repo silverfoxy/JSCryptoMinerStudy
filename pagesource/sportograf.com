@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://www.sportograf.com/shop/index">redirected</a>.</body></html>

@@ -1,1 +1,0 @@
-Bad Bots detected!

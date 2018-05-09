@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.rolandberger.com/en/?country=US">https://www.rolandberger.com/en/?country=US</a></p>

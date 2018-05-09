@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.shiftyjelly.com/pocketcasts">redirected</a>.</body></html>

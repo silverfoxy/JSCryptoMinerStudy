@@ -1,1 +1,0 @@
-You are a spammer, hacker or an otherwise bad person. If you are the administrator of this site and have blocked yourself on accident please visit https://fudzilla.com/administrator/index.php?admintools_rescue=you@example.com where you@example.com is the email address of your (Super User) account.

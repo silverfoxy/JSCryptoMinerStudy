@@ -1,1 +1,0 @@
-You actually should have been headered to <a href="http://www.refreshyourcache.com/en/home/">our homepage</a>.

@@ -1,1 +1,0 @@
-Moved to: https://inside-shops.com/

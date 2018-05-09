@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.hoopladigital.com/">https://www.hoopladigital.com/</a></p>

@@ -1,1 +1,0 @@
-<html><body><script>document.cookie="D0N=ae38d20f4a1d55ff005c358128ac760d"+"; path=/";window.location.reload(true);</script></body></html>

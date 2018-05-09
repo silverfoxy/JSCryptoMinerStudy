@@ -1,1 +1,0 @@
-<p>Temporary Redirect. Redirecting to <a href="/en-us/">/en-us/</a></p>

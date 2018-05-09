@@ -1,1 +1,0 @@
-<SCRIPT>window.location.href='http://www.mobileindex.com';</SCRIPT>

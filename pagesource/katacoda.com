@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.katacoda.com/">https://www.katacoda.com/</a></p>

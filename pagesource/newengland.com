@@ -1,1 +1,0 @@
-Access to this resource on the server is denied.

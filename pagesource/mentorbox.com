@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://mentorbox.com/organic-2-9">redirected</a>.</body></html>

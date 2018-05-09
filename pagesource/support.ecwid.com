@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://support.ecwid.com/hc">redirected</a>.</body></html>

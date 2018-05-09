@@ -1,1 +1,0 @@
-</head><META http-equiv="refresh" content="0;URL=http://sev-cco.com/vb"><body></html>

@@ -1,1 +1,0 @@
-<script>location.href="http://google.com/";</script>

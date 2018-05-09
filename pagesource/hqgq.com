@@ -1,1 +1,0 @@
-<html><head><meta HTTP-EQUIV="REFRESH" CONTENT="0;URL=http://www.hqgq.com"></head><body><font color=white>Loading...</font><br><a href="http://www.hqgq.com"><font color=white>http://www.hqgq.com</font></a></html>

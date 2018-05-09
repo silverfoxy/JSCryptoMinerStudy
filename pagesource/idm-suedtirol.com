@@ -1,1 +1,0 @@
-<html><head><title>Object moved</title></head><body><h2>Object moved to <a href=https://www.idm-suedtirol.com/de/home.html>here</a>.</h2></body></html>

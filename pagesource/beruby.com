@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://us.beruby.com/welcome">redirected</a>.</body></html>

@@ -1,1 +1,0 @@
-<html><head><title>Redirecting...</title></head><body><p>Redirecting to <a href="https://acowtancy.com/">https://acowtancy.com/</a></p></body></html>

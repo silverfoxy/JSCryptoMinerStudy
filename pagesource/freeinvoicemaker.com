@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://freeinvoicemaker.com/">https://freeinvoicemaker.com/</a></p>

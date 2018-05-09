@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.vipkidteachers.com/">https://www.vipkidteachers.com/</a></p>

@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.mcvuk.com/">https://www.mcvuk.com/</a></p>

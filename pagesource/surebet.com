@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://en.surebet.com/">redirected</a>.</body></html>

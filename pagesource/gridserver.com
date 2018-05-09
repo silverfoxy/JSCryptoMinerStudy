@@ -1,5 +1,0 @@
-<html>
-<body>
-<!-- default -->
-</body>
-</html>

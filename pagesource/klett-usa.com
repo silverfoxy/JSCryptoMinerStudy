@@ -1,1 +1,0 @@
-<html><body>The requested resource was moved. It could be found here: <a href="https://www.klett-usa.com/">https://www.klett-usa.com/</a></body></html>

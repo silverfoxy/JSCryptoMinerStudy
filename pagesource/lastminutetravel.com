@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.lastminutetravel.com/">https://www.lastminutetravel.com/</a></p>

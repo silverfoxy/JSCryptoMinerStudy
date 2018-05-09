@@ -1,1 +1,0 @@
-<META HTTP-EQUIV="Refresh" CONTENT="0; url=https://www.afriqa-sat.com/vb/">
