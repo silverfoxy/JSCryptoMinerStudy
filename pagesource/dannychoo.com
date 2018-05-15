@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://www.dannychoo.com/en/post/27375">redirected</a>.</body></html>

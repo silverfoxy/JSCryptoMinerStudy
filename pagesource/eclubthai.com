@@ -1,1 +1,0 @@
-<meta http-equiv= "Refresh" Content="1; url=http://www.eclubthai.com/board/index.php">

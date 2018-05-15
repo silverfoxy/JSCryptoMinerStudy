@@ -1,2 +1,0 @@
-<html><head><title>Error</title></head><body><head><title>Directory Listing Denied</title></head>
-<body><h1>Directory Listing Denied</h1>This Virtual Directory does not allow contents to be listed.</body></body></html>

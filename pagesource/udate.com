@@ -1,1 +1,0 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta content="0; url=http://assets.udate.com/flows/flow-exp/dt/reg/?format=text%2Fhtml&id=BsfEFytteryoGs1SVeC2EA#BsfEFytteryoGs1SVeC2EA" http-equiv="refresh" /></head></html>

@@ -1,1 +1,0 @@
-The URL has moved <a href="http://www.sta1.com/home">here</a>

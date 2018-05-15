@@ -1,2 +1,0 @@
-<html><body>
-  <!--[if lt IE 8]><div style="clear: both; height: 59px; width: 820px; padding:0 0 0 15px; margin: 0 auto; position: relative;"><a href="http://www.browserchoice.eu/"><img src="/assets/ie6-warning.jpg" border="0" height="42" width="820" alt="Vous utilisez une version obsolète d’Internet Explorer. Pour profiter d’une navigation plus rapide et plus sécurisée, effectuez une mise à niveau dès aujourd’hui." /></a></div><![endif]-->You are being <a href="https://www.uriage.com/AA/en/languages">redirected</a>.</body></html>

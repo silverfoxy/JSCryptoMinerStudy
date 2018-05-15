@@ -1,1 +1,0 @@
-<html><head><title>Redirect</title></head><body><h1>Redirect</h1><p>You should go to <a href="https://www.rarejob.com/">https://www.rarejob.com/</a></p></body></html>

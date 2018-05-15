@@ -1,1 +1,0 @@
-<a href='http://www.keeptalkinggame.com'>Found</a>.

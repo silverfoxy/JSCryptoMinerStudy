@@ -1,1 +1,0 @@
-<meta http-equiv="Refresh" content="0; URL=http://www.jnob-jo.com/vb">

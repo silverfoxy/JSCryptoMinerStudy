@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://homeservice24.ch/">redirected</a>.</body></html>

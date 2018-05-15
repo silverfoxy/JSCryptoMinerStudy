@@ -1,1 +1,0 @@
-www.easynepalityping.com

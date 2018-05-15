@@ -1,1 +1,0 @@
-No configuration for domain (there's no database)

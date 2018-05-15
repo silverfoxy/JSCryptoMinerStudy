@@ -1,1 +1,0 @@
-<HTML><head><meta http-equiv="Refresh" CONTENT="0;URL=http://www3.jvckenwood.com/"></head></HTML>

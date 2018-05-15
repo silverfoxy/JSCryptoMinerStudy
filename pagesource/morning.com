@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="/fr/">/fr/</a></p>

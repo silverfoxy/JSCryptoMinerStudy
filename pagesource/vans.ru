@@ -1,1 +1,0 @@
-<head><body> This object may be found <a HREF="https://vans.ru/">here</a> </body>

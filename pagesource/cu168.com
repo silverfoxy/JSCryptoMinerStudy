@@ -1,1 +1,0 @@
-<a href="http://www.cu168.com">Moved Permanently</a>.

@@ -1,1 +1,0 @@
-<a href='http://arithmetic.zetamac.com/'>Found</a>.

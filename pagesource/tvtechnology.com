@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.tvtechnology.com/">https://www.tvtechnology.com/</a></p>

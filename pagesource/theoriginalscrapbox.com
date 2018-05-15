@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.theoriginalscrapbox.com/">redirected</a>.</body></html>

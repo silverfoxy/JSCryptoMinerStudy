@@ -1,2 +1,0 @@
-ad<br />
-<b>Warning</b>:  Cannot modify header information - headers already sent by (output started at /www/htdocs/asot/http/wp-content/themes/asot-v5/index.php:1) in <b>/www/htdocs/asot/http/wp-content/themes/asot-v5/index.php</b> on line <b>42</b><br />

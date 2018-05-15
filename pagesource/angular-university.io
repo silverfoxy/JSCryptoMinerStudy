@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://angular-university.io/">https://angular-university.io/</a></p>

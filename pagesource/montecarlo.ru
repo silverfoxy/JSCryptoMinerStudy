@@ -1,8 +1,0 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Радио Монте-Карло</title><meta name="description" content=""><meta name="keywords" content=""><meta name="fragment" content="!"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/png" href="/uploads/favicon.png"><meta property="og:image" content="/uploads/og_image.jpg"><script src="https://yastatic.net/pcode/adfox/loader.js" crossorigin="anonymous"></script><link href="/dist/vendor.27e0ec7881702827da6c67dba2d11210.css?130ae39471d562afa78d" rel="stylesheet"><link href="/dist/app.f6c80b3824d6fec8c661a186fab65d84.css?130ae39471d562afa78d" rel="stylesheet"></head><body><script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.10&appId=163755547528838";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'))</script><div id="app"></div><script>var img = new Image();
-img.src = 'https://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\\*/g,'%2a') + '*muz_ru/ru/CP1251/tmsec=montecarlo_total/';</script><script type="text/javascript" src="/dist/manifest.js?130ae39471d562afa78d"></script><script type="text/javascript" src="/dist/vendor.js?130ae39471d562afa78d"></script><script type="text/javascript" src="/dist/app.js?130ae39471d562afa78d"></script><script type="text/javascript" src="https://yastatic.net/pcode/adfox/loader.js"></script></body></html>

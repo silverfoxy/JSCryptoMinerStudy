@@ -1,1 +1,0 @@
-Redirecting to <a href="https://papaly.com/">https://papaly.com/</a>

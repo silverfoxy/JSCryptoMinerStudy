@@ -1,1 +1,0 @@
-Redirecting to https://vuejsdevelopers.com/

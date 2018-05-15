@@ -1,1 +1,0 @@
-<html><head><meta http-equiv="refresh" content="0;url=https://dpdcart.com/"/></head></html><html><head><meta http-equiv="refresh" content="0;url=https://dpdcart.com/"/></head></html>

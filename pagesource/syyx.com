@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="http://www.syyx.com/">http://www.syyx.com/</a></p>

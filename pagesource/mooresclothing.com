@@ -1,1 +1,0 @@
-<meta HTTP-EQUIV="refresh" CONTENT="1; URL=https://www.mooresclothing.com/mor/index.jsp">

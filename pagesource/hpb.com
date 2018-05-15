@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.hpb.com/home">redirected</a>.</body></html>

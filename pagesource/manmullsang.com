@@ -1,1 +1,0 @@
-<script>location.replace('http://www.manmullsang.com');</script>

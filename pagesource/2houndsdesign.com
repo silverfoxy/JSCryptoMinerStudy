@@ -1,1 +1,0 @@
-<br /><br />If the page is not updated in 2 seconds, please follow this link: <a href="http://www.2houndsdesign.com/home.php?xid_fa155=df1d32c3df689171721d0b01393dd90d?phpMyAdmin=VsPiASKoFnCfg0X-4XpTkvtRTT8">continue &gt;&gt;</a><meta http-equiv="Refresh" content="0;URL=http://www.2houndsdesign.com/home.php?xid_fa155=df1d32c3df689171721d0b01393dd90d" />

@@ -1,1 +1,0 @@
-Redirecting to canonical URL https://www.hqmilton.com/

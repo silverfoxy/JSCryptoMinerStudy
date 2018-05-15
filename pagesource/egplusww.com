@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.egplusww.com/">https://www.egplusww.com/</a></p>

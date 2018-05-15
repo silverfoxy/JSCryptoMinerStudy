@@ -1,1 +1,0 @@
-<script>window.location.href='https://wenkubao.cc/';</script>

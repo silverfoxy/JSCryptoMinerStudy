@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.sharewise.com/us/">redirected</a>.</body></html>

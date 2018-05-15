@@ -1,1 +1,0 @@
-<script>window.location='http://www.suryaa.com/index.html'</script>

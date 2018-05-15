@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://winnipegtransit.com/en">redirected</a>.</body></html>

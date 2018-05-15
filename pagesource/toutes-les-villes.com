@@ -1,2 +1,0 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;url=http://www.toutes-les-villes.com/" /><script>window.location='http://www.toutes-les-villes.com/';</script></head><body>This page was moved <a href="http://www.toutes-les-villes.com/">here</a></body></html>

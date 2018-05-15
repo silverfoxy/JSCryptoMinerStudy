@@ -1,4 +1,0 @@
-<!doctype html>
-<meta charset="utf-8">
-<title>Document moved</title>
-<p>Document has <a href="http://www.wat.edu.pl/">moved here</a>.</p>

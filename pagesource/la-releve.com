@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://la-releve.com/">https://la-releve.com/</a></p>

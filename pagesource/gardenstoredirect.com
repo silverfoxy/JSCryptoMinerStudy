@@ -1,1 +1,0 @@
-<h1>301 - Moved Permanently</h1><p><a href="https://www.gardenstoredirect.com/">https://www.gardenstoredirect.com/</a></p>

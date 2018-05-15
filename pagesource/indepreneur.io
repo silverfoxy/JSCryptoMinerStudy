@@ -1,1 +1,0 @@
-<html><script src="/cdn-cgi/apps/head/a-B5QOEdnZQ1rCS8HW5TPChI7yQ.js"></script><body>You are being <a href="https://indepreneur.io/homepage">redirected</a>.</body></html>

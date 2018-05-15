@@ -1,2 +1,0 @@
-<head><title>Documento Movido</title></head>
-<body><h1>Objeto Movido</h1>Este documento pode ser encontrado <a HREF="http://www.livros-digitais.com/">aqui</a></body>

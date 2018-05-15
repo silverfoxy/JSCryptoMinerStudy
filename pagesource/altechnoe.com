@@ -1,1 +1,0 @@
-<a href='http://www.altechnoe.com/'>Found</a>.

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://theshownation.com:80/">redirected</a>.</body></html>

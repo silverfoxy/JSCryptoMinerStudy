@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://amplifr.com/en">redirected</a>.</body></html>

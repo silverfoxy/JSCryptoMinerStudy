@@ -1,1 +1,0 @@
-Redirecting to <a href="http://www.almaconnect.com/">http://www.almaconnect.com/</a>

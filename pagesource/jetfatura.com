@@ -1,1 +1,0 @@
-<head><body> This object may be found <a HREF="https://www.jetfatura.com/jetfatura1/formLogin.aspx">here</a> </body>

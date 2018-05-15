@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://boostnote.io/">https://boostnote.io/</a></p>

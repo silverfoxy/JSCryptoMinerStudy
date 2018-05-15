@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.automotivemastermind.com/">https://www.automotivemastermind.com/</a></p>

@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="http://www.pintosoft.com/en/">http://www.pintosoft.com/en/</a></p>

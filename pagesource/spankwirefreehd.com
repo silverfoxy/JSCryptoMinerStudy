@@ -1,1 +1,0 @@
-<script>self.location='/entry.php';</script>

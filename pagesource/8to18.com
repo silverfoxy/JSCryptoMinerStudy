@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://8to18.com/dashboard/land">redirected</a>.</body></html>

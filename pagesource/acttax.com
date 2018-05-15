@@ -1,1 +1,0 @@
-<HTML><HEAD><META HTTP-EQUIV="refresh" CONTENT="0;URL=http://actweb.acttax.com/act_webdev/acttax/index.jsp"></HEAD><body></body></html>

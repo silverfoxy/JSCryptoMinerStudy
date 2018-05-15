@@ -1,1 +1,0 @@
-Moved Permanently. Redirecting to https://ijr.com/

@@ -1,1 +1,0 @@
-Could not connect: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)

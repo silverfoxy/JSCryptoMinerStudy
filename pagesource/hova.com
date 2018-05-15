@@ -1,1 +1,0 @@
-<script>var loc = window.top.document.location.href;window.top.document.location.href = loc.replace('http://', 'https://');</script>

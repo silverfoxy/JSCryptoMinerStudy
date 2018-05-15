@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://mapgeo.io/">https://mapgeo.io/</a></p>

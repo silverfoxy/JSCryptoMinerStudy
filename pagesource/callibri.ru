@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://callibri.ru/">redirected</a>.</body></html>

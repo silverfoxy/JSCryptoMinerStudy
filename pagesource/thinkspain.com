@@ -1,1 +1,0 @@
-<a href="https://www.thinkspain.com/">Moved Permanently</a>.

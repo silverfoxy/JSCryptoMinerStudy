@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://www.kinderly.ru/">redirected</a>.</body></html>

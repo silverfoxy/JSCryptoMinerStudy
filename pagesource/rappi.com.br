@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="restaurantes">restaurantes</a></p>

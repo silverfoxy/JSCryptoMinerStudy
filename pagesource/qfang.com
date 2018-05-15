@@ -1,1 +1,0 @@
-The URL has moved <a href="http://shenzhen.qfang.com/">here</a>

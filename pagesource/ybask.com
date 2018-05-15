@@ -1,1 +1,0 @@
-<a href="http://www.ybask.com">Moved Permanently</a>.

@@ -1,1 +1,0 @@
-<h1>Redirecting To <a href="http://www.pureitwater.com/">pureitwater.com</a> </h1>

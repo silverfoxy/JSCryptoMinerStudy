@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://ipinfo.io/">https://ipinfo.io/</a></p>

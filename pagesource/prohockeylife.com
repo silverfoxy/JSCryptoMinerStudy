@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.prohockeylife.com/">redirected</a>.</body></html>

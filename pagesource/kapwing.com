@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.kapwing.com/">https://www.kapwing.com/</a></p>

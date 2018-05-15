@@ -1,1 +1,0 @@
-﻿ error: type www. in first of URL

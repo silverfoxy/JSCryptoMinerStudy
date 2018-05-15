@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.climbing.com/">https://www.climbing.com/</a></p>

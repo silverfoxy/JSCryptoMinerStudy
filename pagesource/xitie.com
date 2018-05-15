@@ -1,1 +1,0 @@
-<a href="http://www.xitie.com/">Moved Permanently</a>.

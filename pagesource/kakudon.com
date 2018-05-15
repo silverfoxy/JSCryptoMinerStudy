@@ -1,1 +1,0 @@
-<!DOCTYPE html><TITLE>Moved</TITLE><P>The document has moved <A HREF="https://kakudon.com/">here</A>

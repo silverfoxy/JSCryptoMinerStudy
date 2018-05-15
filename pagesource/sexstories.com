@@ -1,1 +1,0 @@
-Redirection to <a href='http://www.sexstories.com/'>http://www.sexstories.com/</a>

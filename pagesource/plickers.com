@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://plickers.com/">https://plickers.com/</a></p>

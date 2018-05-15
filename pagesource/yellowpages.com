@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.yellowpages.com/">https://www.yellowpages.com/</a></p>

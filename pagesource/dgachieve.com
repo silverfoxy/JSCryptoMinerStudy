@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://dgachieve.com/application-deal-lab">redirected</a>.</body></html>

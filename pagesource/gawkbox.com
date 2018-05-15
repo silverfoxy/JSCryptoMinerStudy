@@ -1,8 +1,0 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-109828050-1"></script><script>window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-109828050-1');</script><meta name=robots content=index,follow><meta name=googlebot content=index,follow><meta name=geo.region content=US[-WA]><meta name=geo.placename content=Seattle><title>GawkBox | Bringing Live Streams To Life!</title><meta name=description content="GawkBox is bringing live streams to life!"><script defer=defer src=/static/js/fontawesome-all.min.js></script><link rel=icon href=/static/favicon.ico><link rel=icon href=https://platform.gawkbox.com/static/favicon.ico><link href=https://afeld.github.io/emoji-css/emoji.css rel=stylesheet><link href="https://fonts.googleapis.com/css?family=Ubuntu" rel=stylesheet><link href=/static/css/app.a2ea6733723dd569ee3f590b94b5a734.css rel=stylesheet></head><body><div id=app></div><script src=https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js charset=utf-8></script><script type=text/javascript src=/static/js/manifest.3e7df84b58ecb53b2103.js></script><script type=text/javascript src=/static/js/vendor.898d610f9c38cd028aac.js></script><script type=text/javascript src=/static/js/app.d248fc02ebd85d273808.js></script></body></html>

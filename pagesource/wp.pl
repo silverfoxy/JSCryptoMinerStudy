@@ -1,1 +1,0 @@
-<a href="https://www.wp.pl/">Moved Permanently</a>.

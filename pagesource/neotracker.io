@@ -1,1 +1,0 @@
-Redirecting to <a href="https://neotracker.io/">https://neotracker.io/</a>.

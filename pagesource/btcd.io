@@ -1,7 +1,0 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Bitcoin Diamond BCD - Based on Bitcoin protocol to improve the privacy & processing speed of transaction.</title><link href=https://btcdimage.blob.core.windows.net/websitev2/favicon.ico rel="shortcut icon"><meta name=keywords content="Bitcoin Diamond,BCD,Bitcoin Bifurcation,比特币钻石，比特币，比特币钻石价格，比特币钻石分叉"><meta name=description content="速度优于比特币（Fast More Than BTC,优化比特币协议去保护隐私（ Based on Bitcoin protocol to improve the privacy）,提高交易速度（processing speed of transaction），比特币分叉中的隐币，解决隐私问题（Encrypting the amount to solve privacy issues）"><link href=https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css rel=stylesheet><script>var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?72eb7be9fae3c0a6266f94704acd43e7";
-        var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-      })();</script><link href=/static/css/app.5ac550bed8dba40b9a93aa4d5e0c16d7.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.e3624b256538ac06ee90.js></script><script type=text/javascript src=/static/js/vendor.f28bb80ad977ce972825.js></script><script type=text/javascript src=/static/js/app.d2816b86845af89a34d1.js></script></body></html>

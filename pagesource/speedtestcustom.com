@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://account.speedtestcustom.com">https://account.speedtestcustom.com</a></p>

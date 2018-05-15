@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://novanym.com/">redirected</a>.</body></html>

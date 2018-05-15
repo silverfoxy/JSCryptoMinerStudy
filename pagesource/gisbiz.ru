@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://msk.gisbiz.ru/">redirected</a>.</body></html>

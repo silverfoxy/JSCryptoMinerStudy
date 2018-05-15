@@ -1,1 +1,0 @@
-MDV05 - rdrtr.com

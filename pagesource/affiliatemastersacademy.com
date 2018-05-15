@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://affiliatemastersacademy.com/sales-page16035826">redirected</a>.</body></html>

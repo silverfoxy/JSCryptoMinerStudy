@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.springernature.com/">https://www.springernature.com/</a></p>

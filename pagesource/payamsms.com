@@ -1,1 +1,0 @@
-<html><body>You are being <a href="http://www.payamsms.com/login">redirected</a>.</body></html>

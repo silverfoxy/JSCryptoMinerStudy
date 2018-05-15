@@ -1,1 +1,0 @@
-<html><body><script>document.cookie="bpc=09b314521db6fe5b7a7d6542ed2bcd02";document.location.href="http://kakoj-segodnja-prazdnik.com/";</script></body></html>

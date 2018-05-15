@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://gopro.ru/">redirected</a>.</body></html>

@@ -1,1 +1,0 @@
-<html><body>The requested resource was moved. It could be found here: <a href="https://www.thrifty.com/">https://www.thrifty.com/</a></body></html>

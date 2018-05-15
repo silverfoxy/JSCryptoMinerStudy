@@ -1,1 +1,0 @@
-<h1>Redirecting To <a href="http://www.allthingshair.com/">allthingshair.com</a> </h1>

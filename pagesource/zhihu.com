@@ -1,1 +1,0 @@
-Redirecting to <a href="https://www.zhihu.com/signup?next=%2F">https://www.zhihu.com/signup?next=%2F</a>.

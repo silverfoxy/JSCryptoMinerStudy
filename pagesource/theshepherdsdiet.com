@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://theshepherdsdiet.com/lp-secret">redirected</a>.</body></html>

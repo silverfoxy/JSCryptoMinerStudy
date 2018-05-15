@@ -1,1 +1,0 @@
-<meta http-equiv="refresh" CONTENT="0;URL=./admin" />

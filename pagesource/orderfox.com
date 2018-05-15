@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="/home/en.html">/home/en.html</a></p>

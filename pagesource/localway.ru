@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="/kaliningrad#lw-city-check">/kaliningrad#lw-city-check</a></p>

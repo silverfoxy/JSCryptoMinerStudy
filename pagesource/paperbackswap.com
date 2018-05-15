@@ -1,1 +1,0 @@
-<html><body>Browser redirection failed. Try <a href='http://www.paperbackswap.com/index.php' >http://www.paperbackswap.com/index.php</a></body></html>

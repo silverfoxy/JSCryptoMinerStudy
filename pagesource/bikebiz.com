@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.bikebiz.com/">https://www.bikebiz.com/</a></p>

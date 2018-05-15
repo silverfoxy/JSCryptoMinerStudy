@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://thesucculentsource.com/">redirected</a>.</body></html>

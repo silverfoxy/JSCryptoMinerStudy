@@ -1,1 +1,0 @@
-Redirecting to <a href="http://www.sofarsounds.com/">http://www.sofarsounds.com/</a>

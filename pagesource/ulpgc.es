@@ -1,1 +1,0 @@
-<html><head><title>CAS Authentication wanted!</title></head><body><h1>CAS Authentication wanted!</h1><p>You should already have been redirected to the CAS server. Click <a href="https://identificate.ulpgc.es/cas/login?service=http%3A%2F%2Fwww2.ulpgc.es%2F&gateway=true">here</a> to continue.</p></body></html>

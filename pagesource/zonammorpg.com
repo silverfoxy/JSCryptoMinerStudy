@@ -1,1 +1,0 @@
-<div class="debrand-wrap" style="width:1180px!important; max-width: 100% !important; margin: 0 auto !important; z-index: 5; position: relative; background-color: #000000;">

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://hungryboiler.com/some/westlafayette/delivery/featured">redirected</a>.</body></html>

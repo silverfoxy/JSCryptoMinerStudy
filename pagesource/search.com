@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.search.com/">https://www.search.com/</a></p>

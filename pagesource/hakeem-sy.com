@@ -1,1 +1,0 @@
-<html><head><meta http-equiv="refresh" content="0; url=http://www.hakeem-sy.com/main" /></head></html>

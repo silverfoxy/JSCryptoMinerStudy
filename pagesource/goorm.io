@@ -1,1 +1,0 @@
-<p>Found. Redirecting to <a href="https://www.goorm.io">https://www.goorm.io</a></p>

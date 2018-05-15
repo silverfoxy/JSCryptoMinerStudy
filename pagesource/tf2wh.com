@@ -1,1 +1,0 @@
-<a href="https://tf2wh.com/">Moved Permanently</a>.

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://jackthreads.com/">redirected</a>.</body></html>

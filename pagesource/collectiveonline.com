@@ -1,1 +1,0 @@
-<script type="text/javascript" src="/geo3.asp?CT=0"></script>

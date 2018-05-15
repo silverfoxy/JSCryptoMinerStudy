@@ -1,1 +1,0 @@
-<p>Moved Permanently. Redirecting to <a href="https://www.cars45.com/">https://www.cars45.com/</a></p>

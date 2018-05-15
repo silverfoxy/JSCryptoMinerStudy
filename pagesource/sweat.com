@@ -1,1 +1,0 @@
-                    <script>window.location.href=window.location.href.replace("sweat.com","www.sweat.com")</script>

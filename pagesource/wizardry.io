@@ -1,1 +1,0 @@
-Redirecting to http://www.wizardry.io/

@@ -1,1 +1,0 @@
-<html><body>You are being <a href="https://www.benjaminhardy.com/home-page">redirected</a>.</body></html>

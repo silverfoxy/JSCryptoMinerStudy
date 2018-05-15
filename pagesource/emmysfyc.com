@@ -1,1 +1,0 @@
-<meta http-equiv='Refresh' content='0;url=http://members.televisionacademy.com/MemberTVA/FYCAccess/Redirect.aspx'>
