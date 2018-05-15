@@ -1,6 +1,66 @@
-pages : src of pubwww displaying the results summary of miner search, count + list
-csvs : csvs of the list of sites containing the particular miner
-script: csvs of miners using JS mining
-wss: csvs of miners using web sockets
-data.bkp : all crawled data 
-existing_domains_cleaned.txt : currently existing blacklist domains from the prominent blocker plugins
+
+1.Introduction:
+
+pubwww is a source code search engine. In order to find various statistics related with the 
+crypto miners, we fetched all the required data from this site using the APIs they provide for
+free. We reverse-engineered top crypto miner blocker adons and got the list of the miners regexes
+from there. This list was then refined to remove the duplicates and non-exiting miners. 
+
+2. Design attempts:
+
+We started with the idea of crawling top alexa sites(1 M) on our won to fetch the page source and run
+analytics on top of them. But the idea did not seem plausible with the limited computing resources.
+
+Upon a bit of online research we discovered, http://commoncrawl.org/the-data/, which could provide us with 
+recently crawled and stored data of web pages of our need. We downloaded top 10000 alexa pages from here
+and ran our analytics code to look for the miners. Our approach was to find all possible exitence of miner
+scripts, hence instead fo looking for just the mining script provider, we looked for all the possible regexes
+which could be  a possible miner. We had the task of matching about 650 regexes with 10000 pages. Using a 
+single computer to run this task turned out to be very time consuming as one regex unfolds to many
+strings and even Python's standard regex libraries took too much time to yield results.
+
+We modified our code to just look for the miner URLs, in place of all the regexes to bring
+down the run time. With alexa top 10000 pages, we did not find enough results to draw out some relevant
+conclusion, hence we decided to go ahead with larger number of sites and we came across https://publicwww.com/, 
+a source code search engine. Apart from listing results and providing facility ot download pages,
+It also exposes some APIs to fetch the result in csv format. We developed code to work with those APIs to get
+the data. And top of it we developed additional code to fetch relevant details for our analysis and plotting.
+
+3. Code:
+3.1
+The code is hosted on github - https://github.com/silverfoxy/JSCryptoMinerStudy
+The repo has additional stuff, which we experimented with, apart from the main code. The main code lies
+in the directory - pubwww. 
+
+3.2
+3.2.1 USAGE:
+$ python crawlpubwww.py
+- fetches following data:
+pages : for each miner, list of pages contaning that miner and total number of such pages, displayed 
+as summary src of pubwww displaying the results summary of miner search, count + list
+
+csvs : csvs(url, rank, script_src) of the list of sites containing the particular miner
+
+script: csvs(url, rank, script_src_found) of miners using JS mining
+
+wss: csvs(url, rank, wss_src_found) of miners using web sockets for mining
+
+
+$ python miner_counter.py
+- crawls through the fetched pages and reports the summary of a particula miner in total results
+
+3.2.2
+All the crawled data lies in these directories : data, pages, script, wss, csvs
+
+4. Future work:
+Web is a very dynamic place. Websites change very dynamically, what is present today can be in 
+a very different form tomorrow or may stop existing. Some websites which are not reachable today may 
+comeup the next day. We want to improve this framework of data gathering to run it over a perios of
+time, gather and compare the results to understand the usage pattern of JS based crypto miners in 
+the websites. We would refactor our code to look for regexes instead of the miner script alone and
+would try to run with more recent page sources at some regular interval to gain more insights for 
+this study. We would also setup a parallel run on the sources obtained from commoncrawl. Based on 
+the primary information from the current study, we may crawl the specific sites where we saw the 
+presence of miners, and derive some conclusion about, how effectively browsers work with/without 
+blocking them. How does it impact the CPU cycle and so on. There could be multitude of directions
+this study take and come up some really interesting results.
